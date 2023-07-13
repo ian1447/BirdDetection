@@ -1,3 +1,7 @@
+
+
+
+
 import cv2
 import numpy as np
 
@@ -7,7 +11,10 @@ classes = []
 with open("coco.names.txt", "r") as f:
     classes = [line.strip() for line in f.readlines()]
 layer_names = net.getLayerNames()
+
+#change between the 2 if error
 output_layers = [layer_names[i - 1] for i in net.getUnconnectedOutLayers()]
+#output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
 #load image
 # img = cv2.imread("birds2.jpg")
