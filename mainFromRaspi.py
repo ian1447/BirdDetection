@@ -3,7 +3,7 @@ import numpy as np
 import time
 import RPi.GPIO as GPIO  
 from time import sleep
-from playsound import playsound
+import pygame
 
 #load Yolo
 net = cv2.dnn.readNet("yolov4-tiny.weights","yolov4-tiny.cfg.txt")
@@ -24,7 +24,9 @@ GPIO.output(in1,GPIO.LOW)
 GPIO.output(in2,GPIO.LOW)
 
 def run():
-    playsound('audio.wav')
+    pygame.mixer.init()
+    pygame.mixer.music.load("audio.wav")
+    pygame.mixer.music.play()
     in1 = 24
     in2 = 23
     print("Bird Detected")
